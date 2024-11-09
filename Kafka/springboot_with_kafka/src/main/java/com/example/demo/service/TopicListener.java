@@ -17,3 +17,15 @@ public class TopicListener {
 	}
 
 }
+
+
+// To start Zookeeper
+// ./bin/zookeeper-server-start.sh ./config/zookeeper.properties
+
+
+// To start Kafka
+// ./bin/kafka-server-start.sh ./config/server.properties
+
+
+// To Start consumer
+// ./bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic hello-world --from-beginning
