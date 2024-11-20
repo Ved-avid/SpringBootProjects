@@ -26,4 +26,9 @@ public class ProjectApplication {
 		return "Home API is working";
 	}
 
+	@GetMapping("/admin")
+	public String adminTest(){
+		return "Admin API works";
+	}
+
 }

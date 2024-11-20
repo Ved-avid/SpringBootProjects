@@ -20,11 +20,16 @@ public class SecurityConfig{
     @Bean
     public InMemoryUserDetailsManager userDetailsService(){
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        UserDetails user = User.withUsername("ved").
+        UserDetails user1 = User.withUsername("ved").
                            password(encoder.encode("ved")).
                            roles("USER").build();
 
-        return new InMemoryUserDetailsManager(user);
+        UserDetails user2 = User.withUsername("admin").
+                            password(encoder.encode("ved")).
+                            roles("ADMIN").build();
+        UserDetails[] users = {user1,user2};
+
+        return new InMemoryUserDetailsManager(users);
     }
 
     // FOR SECURITY CHECKS
@@ -32,7 +37,8 @@ public class SecurityConfig{
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests().
-                requestMatchers("/user").authenticated()
+                requestMatchers("/user").hasAnyRole("ADMIN","USER")
+                .requestMatchers("/admin").hasRole("ADMIN")
                 .requestMatchers("/home").permitAll()
                 .and()
                 .formLogin()
