@@ -30,3 +30,12 @@ for (var _i = 0, sports_1 = sports; _i < sports_1.length; _i++) {
         console.log(tempSport);
     }
 }
+// Arrays are growable in TypeScript
+sports.push("BasketBall");
+sports.push("Golf");
+sports.push("Cycling");
+console.log("After adding few more sports");
+for (var _a = 0, sports_2 = sports; _a < sports_2.length; _a++) {
+    var tempSports = sports_2[_a];
+    console.log(tempSports);
+}

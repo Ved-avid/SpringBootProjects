@@ -38,3 +38,14 @@ for (let tempSport of sports) {
     console.log(tempSport);
   }
 }
+
+// Arrays are growable in TypeScript
+
+sports.push("BasketBall");
+sports.push("Golf");
+sports.push("Cycling");
+
+console.log("After adding few more sports");
+for (let tempSports of sports) {
+  console.log(tempSports);
+}
