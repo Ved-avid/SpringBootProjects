@@ -1,0 +1,18 @@
+TypeScript supports the concept of modules , It can export / Import classes , functions , variables etc.
+
+We can write codes in different modules and export or import based on the requirement.
+
+For example
+
+Driver.ts class wants to use customer.ts class, so in this case the customer.ts will export and driver.ts will import from customer.ts class.
+
+Customer.ts
+
+export class Customer{}
+
+Driver.ts
+
+import {Customer} from './Customer';  {ClassName } and ['FileNameWithoutExtension']
+-----
+-----
+-----
