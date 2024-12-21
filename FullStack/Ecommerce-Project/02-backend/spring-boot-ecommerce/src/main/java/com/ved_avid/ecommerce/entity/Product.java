@@ -1,5 +1,4 @@
 package com.ved_avid.ecommerce.entity;
-
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -15,39 +14,39 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name="sku")
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private ProductCategory category;
+
+    @Column(name = "sku")
     private String sku;
 
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name="description")
+    @Column(name = "description")
     private String description;
 
-    @Column(name="unit_price")
+    @Column(name = "unit_price")
     private BigDecimal unitPrice;
 
-    @Column(name="image_url")
+    @Column(name = "image_url")
     private String imageUrl;
 
-    @Column(name="active")
+    @Column(name = "active")
     private boolean active;
 
-    @Column(name="units_in_stock")
+    @Column(name = "units_in_stock")
     private int unitsInStock;
 
-    @Column(name="date_created")
+    @Column(name = "date_created")
     @CreationTimestamp
-    private java.util.Date createdOn;
+    private Date dateCreated;
 
-    @Column(name="last_updated")
+    @Column(name = "last_updated")
     @UpdateTimestamp
-    private Date updatedOn;
-
-    @ManyToOne
-    @JoinColumn(name="category_id",nullable = false)
-    private ProductCategory category;
+    private Date lastUpdated;
 }
